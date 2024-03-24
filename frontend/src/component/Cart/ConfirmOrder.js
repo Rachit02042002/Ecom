@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import MetaData from '../layout/MetaData'
 import CheckoutSteps from './CheckoutSteps'
 import { Typography } from "@mui/material";
-import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import "./ConfirmOrder.css"
 
 const ConfirmOrder = () => {

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import "./Shipping.css"
-import { UseSelector,useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { saveShippingInfo } from '../../actions/cartAction'
 import MetaData from '../layout/MetaData'
 import PinDropIcon from "@material-ui/icons/PinDrop"
@@ -11,7 +11,7 @@ import PhoneIcon from "@material-ui/icons/Phone"
 import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation"
 import {Country,State} from "country-state-city"
 import { useAlert } from 'react-alert'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import CheckoutSteps from "../Cart/CheckoutSteps.js"
 const Shipping = () => {
 

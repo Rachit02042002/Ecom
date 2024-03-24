@@ -1,14 +1,14 @@
 import {  combineReducers } from "redux";
 import {thunk} from "redux-thunk"; // Removed curly braces around thunk
 
-import { newReviewReducer, productDetailsReducer, productReducer } from "./reducers/productReducer";
+import { newProductReducer, newReviewReducer, productDetailsReducer, productReducer, productsReducer } from "./reducers/productReducer";
 import { forgotPasswordReducer, profileReducer, userReducer } from "./reducers/userReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { cartReducer } from "./reducers/cartReducer";
 import { myOrdersReducer, newOrderReducer, orderDetailsReducer } from "./reducers/orderReducer";
 const reducer = combineReducers({
   // Add your reducers here if you have any
-  products:productReducer,
+  products:productsReducer,
   productDetails:productDetailsReducer,
   user:userReducer,
   profile:profileReducer,
@@ -18,7 +18,8 @@ const reducer = combineReducers({
   myOrders:myOrdersReducer,
   orderDetails:orderDetailsReducer,
   newReview:newReviewReducer,
-  
+  newProduct:newProductReducer,
+  product:productReducer,
 });
 
 let preloadedState = {

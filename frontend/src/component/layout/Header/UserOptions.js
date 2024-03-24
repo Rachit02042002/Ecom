@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom"
 import {useDispatch,useSelector} from "react-redux"
 import {useAlert} from "react-alert"
 import { logout } from '../../../actions/userAction'
-import Profileimage from "../../../images/Profile.png"
+
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
 
 
@@ -33,7 +33,7 @@ const UserOptions = ({ user }) => {
   }
 
   function dashboard(){
-    navigate("/dashboard")
+    navigate("/admin/dashboard")
   }
 
   function orders(){

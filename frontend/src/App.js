@@ -84,7 +84,10 @@ import { useState } from 'react';
 import OrderSuccess from "./component/Cart/OrderSuccess.js"
 import MyOrders from "./component/Order/MyOrders.js"
 import OrderDetails from "./component/Order/OrderDetails.js"
-
+import Dashboard from "./component/admin/Dashboard.js";
+import ProductList from "./component/admin/ProductList.js"
+import NewProduct from './component/admin/NewProduct.js';
+import UpdateProduct from "./component/admin/UpdateProduct.js"
 function App() {
   const { isAuthenticated, user } = useSelector(state => state.user);
   const [stripeApikey,setStripeApikey] = useState("")
@@ -119,13 +122,17 @@ function App() {
         <Route path="/password/update" element = {<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
         <Route path="/password/forgot" element = {<ForgotPassword/>}/>
         <Route path="/password/reset/:token" element = {<ResetPassword/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart" element = {<ProtectedRoute><Cart/></ProtectedRoute>}/>
         <Route path="/login/shipping" element = {<ProtectedRoute><Shipping/></ProtectedRoute>}/>
         <Route path='/order/confirm' element = {<ProtectedRoute><ConfirmOrder/></ProtectedRoute>}/>
         <Route path='/process/payment' element = {stripeApikey && <Elements stripe={loadStripe(stripeApikey)}><ProtectedRoute><Payment/></ProtectedRoute></Elements>}/>
         <Route path='/success' element={<ProtectedRoute><OrderSuccess/></ProtectedRoute>}/>
         <Route path='/orders' element={<ProtectedRoute><MyOrders/></ProtectedRoute>}/>
         <Route path='/order/:id' element={<ProtectedRoute><OrderDetails/></ProtectedRoute>}/>
+        <Route path='/admin/dashboard' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>}/>
+        <Route path='/admin/products' element={<ProtectedRoute isAdmin = {true}><ProductList/></ProtectedRoute>}/>
+        <Route path='/admin/product' element={<ProtectedRoute isAdmin = {true}><NewProduct/></ProtectedRoute>}/>
+        <Route path='/admin/product/:id' element={<ProtectedRoute isAdmin = {true}><UpdateProduct/></ProtectedRoute>}/>
         <Route exact path="/login" element={<LoginSignUp />} />
       </Routes>
       <Footer />
